@@ -7,10 +7,11 @@ http://tylerhenkel.com/creating-apps-with-angular-and-node-using-yeoman/
 
 ## Getting Started
 
-npm install
-node server.js
-grunt serve
-
+```
+$ npm install
+$ node server.js
+$ grunt serve
+```
 
 ## Features
 - Live Reload
