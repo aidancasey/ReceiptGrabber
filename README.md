@@ -1,9 +1,30 @@
 # 
+HTML Receipt Grabber - snap you receipts on your smartphone , enter the details and the automagically appear in dropbox with csv expense reports
 
-Simple set of productivity tools built on a MEAN stack
+This is an all JavaScript project from top to tail built on a MEAN stack (MongoDB,Express,AngularJS,Node.js)
+
 - scaffolding generated with yeoman  - generator-angular-fullstack
 
 http://tylerhenkel.com/creating-apps-with-angular-and-node-using-yeoman/
+
+## Prerequisites
+* Node.js - Download and Install [Node.js](http://www.nodejs.org/download/). You can also follow [this gist](https://gist.github.com/isaacs/579814) for a quick and easy way to install Node.js and npm
+* MongoDB - Download and Install [MongoDB](http://docs.mongodb.org/manual/installation/) - Make sure `mongod` is running on the default port (27017).
+
+### Tools Prerequisites
+* NPM - Node.js package manage; should be installed when you install node.js.
+* Bower - Web package manager. Installing [Bower](http://bower.io/) is simple when you have `npm`:
+
+```
+$ npm install -g bower
+```
+
+### Optional [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+* Grunt - Download and Install [Grunt](http://gruntjs.com).
+```
+$ npm install -g grunt-cli
+```
+
 
 ## Getting Started
 
@@ -14,7 +35,11 @@ $ grunt serve
 ```
 
 ## Features
-- Live Reload
+- Live Reload of all web assets
+- etc...
+-
+-
+-
 
 
 ## To do
