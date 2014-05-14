@@ -1,5 +1,5 @@
 # 
-HTML Receipt Grabber - snap you receipts on your smartphone , enter the details and the automagically appear in dropbox with csv expense reports
+HTML Receipt Grabber - snap you company expense receipts on your smart phone camera, enter the details and the automagically appear in dropbox with csv expense reports!
 
 This is an all JavaScript project from top to tail built on a MEAN stack (MongoDB,Express,AngularJS,Node.js)
 
