@@ -4,7 +4,8 @@ angular.module('splatToolsApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ngQuickDate'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
