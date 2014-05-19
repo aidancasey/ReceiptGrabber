@@ -3,18 +3,28 @@
 
 <form class="form-horizontal" role="form">
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
+    <label for="inputText" class="col-sm-2 control-label">Description</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputText" placeholder="Description">
+      <textarea class="form-control" rows="3" placeholder="Description"></textarea>
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Date</label>
+    <label for="receiptDate" class="col-sm-2 control-label">Date</label>
     <div class="col-sm-10">
-      <quick-datepicker name='myDate' ng-model='myDate' disable-timepicker='true' date-format='EEEE, dd MMM, yyyy' required></quick-datepicker>
+      <quick-datepicker name='receiptDate' ng-model='myDate' disable-timepicker='true' date-format='EEEE, dd MMM, yyyy' required></quick-datepicker>
     </div>
   </div>
+
+  <div class="form-group">
+    <label for="selectCurrency" class="col-sm-2 control-label">Currency</label>
+   <div class="col-sm-10">
+      <select data-ng-options="o.name for o in currencyCodes" data-ng-model="currency"></select>
+    </div>
+  </div>
+
+
+
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">

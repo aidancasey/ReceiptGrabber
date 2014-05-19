@@ -15,6 +15,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var config = require('./lib/config/config');
 var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 
+console.log('foo');
+
 // Bootstrap models
 var modelsPath = path.join(__dirname, 'lib/models');
 fs.readdirSync(modelsPath).forEach(function (file) {
@@ -23,7 +25,7 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   }
 });
 
-// Populate empty DB with sample data
+// Populate reference data
 require('./lib/config/dummydata');
 
 // Passport Configuration

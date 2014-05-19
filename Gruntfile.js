@@ -55,6 +55,10 @@ module.exports = function (grunt) {
         }
       },
       mochaTest: {
+             options: {
+                reporter: 'spec',
+                require: 'server.js'
+            },
         files: ['test/server/{,*/}*.js'],
         tasks: ['env:test', 'mochaTest']
       },
