@@ -3,7 +3,9 @@
 var express = require('express'),
     path = require('path'),
     fs = require('fs'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    upload = require('jquery-file-upload-middleware');
+
 
 /**
  * Main application file
@@ -33,8 +35,31 @@ var passport = require('./lib/config/passport');
 
 // Setup Express
 var app = express();
+
+
+
 require('./lib/config/express')(app);
-require('./lib/routes')(app);
+
+
+  upload.configure({
+        uploadDir: __dirname + '/public/uploads',
+        uploadUrl: '/uploads',
+        imageVersions: {
+            thumbnail: {
+                width: 80,
+                height: 80
+            }
+        }
+    });
+
+
+app.use('/api/file', upload.fileHandler());
+//app.use('/uploads', upload.fileHandler());
+
+
+require('./lib/routes')(app,upload,express);
+
+
 
 // Start server
 app.listen(config.port, config.ip, function () {
