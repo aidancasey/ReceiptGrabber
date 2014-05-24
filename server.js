@@ -6,7 +6,6 @@ var express = require('express'),
     mongoose = require('mongoose'),
     upload = require('jquery-file-upload-middleware');
 
-
 /**
  * Main application file
  */
@@ -37,11 +36,9 @@ var passport = require('./lib/config/passport');
 var app = express();
 
 
-
 require('./lib/config/express')(app);
 
-
-  upload.configure({
+upload.configure({
         uploadDir: __dirname + '/public/uploads',
         uploadUrl: '/uploads',
         imageVersions: {
@@ -54,10 +51,10 @@ require('./lib/config/express')(app);
 
 
 app.use('/api/file', upload.fileHandler());
-//app.use('/uploads', upload.fileHandler());
 
 
-require('./lib/routes')(app,upload,express);
+
+require('./lib/routes')(app);
 
 
 
