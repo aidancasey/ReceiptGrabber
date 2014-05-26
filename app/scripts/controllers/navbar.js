@@ -3,7 +3,7 @@
 angular.module('splatToolsApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
+      'title': 'Add Receipt',
       'link': '/'
     }, {
       'title': 'Settings',

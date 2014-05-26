@@ -1,34 +1,41 @@
 'use strict';
 
-angular.module('splatToolsApp')
-  .controller('MainCtrl', function ($scope, $http) {
-  	//get list of supported currencies 
-    $http.get('/api/currency').success(function(currencies) {
-      $scope.currencyCodes = currencies;
-    });
-  });
+// angular.module('splatToolsApp')
+//   .controller('MainCtrl', function ($scope, $http) {
+//   	//get supported currencies 
+//     $http.get('/api/currency').success(function(currencies) {
+//       $scope.currencyCodes = currencies;
+//     });
+//   });
 
 angular.module('splatToolsApp')
-.controller('DemoFileUploadController', [
-            '$scope', '$http', '$filter', '$window',
-            function ($scope, $http) {
-                $scope.options = {
-                    url: url
-                };
-                    $scope.loadingFiles = true;
-                    $http.get(url)
-                        .then(
-                            function (response) {
-                                $scope.loadingFiles = false;
-                                $scope.queue = response.data.files || [];
-                            },
-                            function () {
-                                $scope.loadingFiles = false;
-                            }
-                        );
+.controller('MainController', 
+    ['$scope', '$http', '$filter', '$window',
+        function ($scope, $http) {
+     
+            //get supported currencies 
+            $http.get('/api/currency').success(function(currencies) {
+              $scope.currencyCodes = currencies;
+            });
+
+            //set the file upload url
+            $scope.options = {
+            url: url
+            };
+            $scope.loadingFiles = true;
+            $http.get(url)
+                 .then(
+                      function (response) {
+                         $scope.loadingFiles = false;
+                        $scope.queue = response.data.files || [];
+                       },
+                      function () {
+                        $scope.loadingFiles = false;
+                       }
+                     );
                 
-            }
-        ]);
+        }
+     ]);
 
 angular.module('splatToolsApp')
 .controller('FileDestroyController', [
