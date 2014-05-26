@@ -1,8 +1,8 @@
 ## HTML Receipt Grabber 
+
 Snap you company expense receipts on your smart phone camera, enter the details and the automagically appear in dropbox with csv expense reports!
 
 This is an  **all JavaScript project** from top to tail built on a **MEAN stack** (MongoDB,Express,AngularJS,Node.js)
-
 
 
 ## Prerequisites
@@ -23,7 +23,6 @@ $ npm install -g bower
 $ npm install -g grunt-cli
 ```
 
-
 ## Getting Started
 
 ```
@@ -32,15 +31,13 @@ $ node server.js
 $ grunt serve
 ```
 
-
-
 ## To do
 <table>
   <tr>
     <th></th><th>Description</th>
   </tr>
   <tr>
-    <td></td><td>basic file upload with meta data to node server</td>
+    <td>done</td><td>basic file upload with meta data to node server</td>
   </tr>
   <tr>
     <td></td><td>write files to dropbox</td>
@@ -65,9 +62,7 @@ $ grunt serve
 
 ## Special Thanks
  * [yeoman scaffolding generator](http://tylerhenkel.com/creating-apps-with-angular-and-node-using-yeoman/).
- * and more...
-
-
+ * [jquery-file-upload](http://blueimp.github.io/jQuery-File-Upload/).
 
 ## License
 [The MIT License](http://opensource.org/licenses/MIT)
