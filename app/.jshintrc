@@ -9,6 +9,5 @@
   "noarg": true,
   "regexp": true,
   "undef": true,
-  "smarttabs": true,
-  "predef": ["angular","window"]
+  "smarttabs": true
 }
