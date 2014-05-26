@@ -1,8 +1,5 @@
 'use strict';
 
-
-var url = 'api/file/';
-
 var app = angular.module('splatToolsApp', [
   'ngCookies',
   'ngResource',
@@ -54,18 +51,12 @@ app.config(function ($routeProvider, $locationProvider, $httpProvider) {
     }]);
   });
 
-
- app.config([
-            '$httpProvider', 'fileUploadProvider',
-            function ($httpProvider, fileUploadProvider) {
-                delete $httpProvider.defaults.headers.common['X-Requested-With'];
-                fileUploadProvider.defaults.redirect = window.location.href.replace(
-                    /\/[^\/]*$/,
-                    '/cors/result.html?%s'
-                );
-            }
-        ]);
-
+app.config([
+  '$httpProvider', 'fileUploadProvider',  function ($httpProvider, fileUploadProvider) {
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    fileUploadProvider.defaults.redirect = window.location.href.replace(/\/[^\/]*$/,'/cors/result.html?%s');
+  }
+]);
 
 
 app.run(function ($rootScope, $location, Auth) {

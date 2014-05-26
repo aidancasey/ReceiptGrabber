@@ -1,17 +1,11 @@
 'use strict';
 
-// angular.module('splatToolsApp')
-//   .controller('MainCtrl', function ($scope, $http) {
-//   	//get supported currencies 
-//     $http.get('/api/currency').success(function(currencies) {
-//       $scope.currencyCodes = currencies;
-//     });
-//   });
+var url = 'api/file/';
 
 angular.module('splatToolsApp')
-.controller('MainController', 
+.controller('MainController',
     ['$scope', '$http', '$filter', '$window',
-        function ($scope, $http) {
+    function ($scope, $http) {
      
             //get supported currencies 
             $http.get('/api/currency').success(function(currencies) {
@@ -20,21 +14,20 @@ angular.module('splatToolsApp')
 
             //set the file upload url
             $scope.options = {
-            url: url
-            };
+                url: url
+              };
             $scope.loadingFiles = true;
             $http.get(url)
                  .then(
                       function (response) {
-                         $scope.loadingFiles = false;
+                        $scope.loadingFiles = false;
                         $scope.queue = response.data.files || [];
-                       },
+                      },
                       function () {
                         $scope.loadingFiles = false;
-                       }
+                      }
                      );
-                
-        }
+          }
      ]);
 
 angular.module('splatToolsApp')
