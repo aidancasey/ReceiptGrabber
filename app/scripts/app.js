@@ -16,7 +16,7 @@ var app = angular.module('splatToolsApp', [
 app.config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/main',
+        templateUrl: 'partials/addReceipt',
         controller: 'MainController'
       })
       .when('/login', {
