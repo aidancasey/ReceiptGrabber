@@ -1,13 +1,19 @@
 'use strict';
 
-angular.module('splatToolsApp', [
+
+var url = 'api/file/';
+
+var app = angular.module('splatToolsApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ngQuickDate'
-])
-  .config(function ($routeProvider, $locationProvider, $httpProvider) {
+  'ngQuickDate',
+  'blueimp.fileupload'
+
+]);
+
+app.config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main',
@@ -46,8 +52,23 @@ angular.module('splatToolsApp', [
         }
       };
     }]);
-  })
-  .run(function ($rootScope, $location, Auth) {
+  });
+
+
+ app.config([
+            '$httpProvider', 'fileUploadProvider',
+            function ($httpProvider, fileUploadProvider) {
+                delete $httpProvider.defaults.headers.common['X-Requested-With'];
+                fileUploadProvider.defaults.redirect = window.location.href.replace(
+                    /\/[^\/]*$/,
+                    '/cors/result.html?%s'
+                );
+            }
+        ]);
+
+
+
+app.run(function ($rootScope, $location, Auth) {
 
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$routeChangeStart', function (event, next) {

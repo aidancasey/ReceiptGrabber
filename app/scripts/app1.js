@@ -1,13 +1,11 @@
 
-(function () {
-    'use strict';
+ 'use strict';
 
-    var url = 'api/file/';
+ var url = 'api/file/';
 
-    angular.module('demo', [
-        'blueimp.fileupload'
-    ])
-        .config([
+ var app=angular.module('demo', ['blueimp.fileupload']);
+
+ app.config([
             '$httpProvider', 'fileUploadProvider',
             function ($httpProvider, fileUploadProvider) {
                 delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -16,9 +14,9 @@
                     '/cors/result.html?%s'
                 );
             }
-        ])
+        ]);
 
-        .controller('DemoFileUploadController', [
+app.controller('DemoFileUploadController', [
             '$scope', '$http', '$filter', '$window',
             function ($scope, $http) {
                 $scope.options = {
@@ -37,9 +35,9 @@
                         );
                 
             }
-        ])
+        ]);
 
-        .controller('FileDestroyController', [
+app.controller('FileDestroyController', [
             '$scope', '$http',
             function ($scope, $http) {
                 var file = $scope.file,
@@ -70,5 +68,3 @@
                 }
             }
         ]);
-
-}());
