@@ -5,7 +5,8 @@ angular.module('splatToolsApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ngQuickDate'
+  'ngQuickDate',
+  'angularFileUpload'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

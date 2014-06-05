@@ -33,6 +33,11 @@ var passport = require('./lib/config/passport');
 
 // Setup Express
 var app = express();
+
+var busboy = require('connect-busboy');
+app.use(busboy());
+
+
 require('./lib/config/express')(app);
 require('./lib/routes')(app);
 
