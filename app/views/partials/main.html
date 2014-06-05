@@ -1,40 +1,7 @@
 <div ng-include="'partials/navbar'"></div>
-
-wevwvwevw
-
 <form class="form-horizontal" role="form">
-
-
 <div>
-<div class="ng-v">
-        Angular Version: <input type="text" ng-model="angularVersion"> 
-        <input type="button" data-ng-click="changeAngularVersion()" value="Go">
-    </div>
-    <h1>Angular file upload Demo</h1>
-    <h3>
-        Visit <a href="https://github.com/danialfarid/angular-file-upload">angular-file-upload</a> on github
-    </h3>
-    <div class="upload-div">
-        http method: <input type="radio" ng-model="httpMethod" ng-init="httpMethod = 'POST'" value="POST"/>post <input type="radio" ng-model="httpMethod" value='PUT'/>put<br/>
-        <br/>
-        How to upload:<br/>
-        <label><input type="radio" name="howToSend" ng-model="howToSend" value="1" ng-init="howToSend = 1">Multupart/form-data upload using $upload.upload() service cross browser</label>
-        <br/>
-        <label><input type="radio" name="howToSend" ng-model="howToSend" value="2" ng-disabled="!dropSupported">File binary content with the file type as Content-Type header using $upload.http() service</label>
-        <div class="sub">The second option could be used to upload files to <a href="https://github.com/danialfarid/angular-file-upload/issues/88">CouchDB</a>, 
-            <a href="https://github.com/danialfarid/angular-file-upload/issues/87">imgur</a>, etc... for HTML5 FileReader browsers.<br/>
-        </div><br/>
-        myModel: <input type="text" ng-model="myModel"> model object to be sent with the file.<br/>
-        choose a single file: <input type="file" ng-file-select="onFileSelect($files)" onclick="this.value=null">
-        <br/>
-        or multiple files: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="file" ng-file-select="onFileSelect($files)" multiple onclick="this.value=null">
-        <br/>
-        <br/>
-        <div ng-show="dropSupported" class="drop-box" ng-file-drop="onFileSelect($files);" ng-file-drop-available="dropSupported=true">or drop files here</div>
-        <div ng-show="!dropSupported">HTML5 Drop File is not supported on this browser</div>
-        <br/>
-        <input type="checkbox" ng-model="uploadRightAway">Upload right away
-        <br/>
+        choose a file: <input type="file" ng-file-select="onFileSelect($files)" onclick="this.value=null">
         <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
         <br/>
         Progress:
@@ -53,7 +20,7 @@ wevwvwevw
             </div>
         </div>
         <div class="response" ng-show="uploadResult.length > 0">
-            Server Response:
+            Server Response: 
             <ul>
                 <li ng-repeat="result in uploadResult">
                     <ul>
@@ -64,7 +31,6 @@ wevwvwevw
                             <div data-ng-show="item.value">value: {{item.value}}</div>
                         </li>
                     </ul>
-                    <div data-ng-show="result.requestHeaders" class="reqh">request headers: {{result.requestHeaders}}</div>
                 </li>
             </ul>
         </div>

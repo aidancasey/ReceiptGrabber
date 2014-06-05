@@ -11,10 +11,7 @@ angular.module('splatToolsApp')
 
 	$scope.fileReaderSupported = window.FileReader != null;
 	$scope.uploadRightAway = true;
-	$scope.changeAngularVersion = function() {
-		window.location.hash = $scope.angularVersion;
-		window.location.reload(true);
-	};
+	
 	$scope.hasUploader = function(index) {
 		return $scope.upload[index] != null;
 	};
@@ -60,29 +57,19 @@ angular.module('splatToolsApp')
 	$scope.start = function(index) {
 		$scope.progress[index] = 0;
 		$scope.errorMsg = null;
-		if ($scope.howToSend == 1) {
-			$scope.upload[index] = $upload.upload({
-				url : '/api/upload',
-				method: $scope.httpMethod,
-				headers: {'my-header': 'my-header-value'},
-				data : {
-					myModel : $scope.myModel
-				},
-				/* formDataAppender: function(fd, key, val) {
-					if (angular.isArray(val)) {
-                        angular.forEach(val, function(v) {
-                          fd.append(key, v);
-                        });
-                      } else {
-                        fd.append(key, val);
-                      }
-				}, */
-				/* transformRequest: [function(val, h) {
-					console.log(val, h('my-header')); return val + 'aaaaa';
-				}], */
-				file: $scope.selectedFiles[index],
-				fileFormDataName: 'myFile'
+		$scope.upload[index] = $upload.upload({
+		url : '/api/upload',
+		method: $scope.httpMethod,
+		headers: {'my-header': 'my-header-value'},
+		data : {
+			myModel : $scope.myModel
+		},
+		file: $scope.selectedFiles[index],
+		fileFormDataName: 'myFile'
 			}).then(function(response) {
+				console.log('response back is ');
+				console.log(response.data);
+
 				$scope.uploadResult.push(response.data);
 			}, function(response) {
 				if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
@@ -92,24 +79,7 @@ angular.module('splatToolsApp')
 			}).xhr(function(xhr){
 				xhr.upload.addEventListener('abort', function() {console.log('abort complete')}, false);
 			});
-		} else {
-			var fileReader = new FileReader();
-            fileReader.onload = function(e) {
-		        $scope.upload[index] = $upload.http({
-		        	url: '/api/upload',
-					headers: {'Content-Type': $scope.selectedFiles[index].type},
-					data: e.target.result
-		        }).then(function(response) {
-					$scope.uploadResult.push(response.data);
-				}, function(response) {
-					if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-				}, function(evt) {
-					// Math.min is to fix IE which reports 200% sometimes
-					$scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-				});
-            }
-	        fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
-		}
+		
 	};
 
 }]);
