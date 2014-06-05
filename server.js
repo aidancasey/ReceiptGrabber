@@ -3,7 +3,8 @@
 var express = require('express'),
     path = require('path'),
     fs = require('fs'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    busboy = require('connect-busboy');
 
 /**
  * Main application file
@@ -34,7 +35,7 @@ var passport = require('./lib/config/passport');
 // Setup Express
 var app = express();
 
-var busboy = require('connect-busboy');
+
 app.use(busboy());
 
 

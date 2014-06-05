@@ -32,6 +32,26 @@ $ node server.js
 $ grunt serve
 ```
 
+## Initializing heroku folder
+
+```
+yo angular-fullstack:heroku
+```
+This will do a grunt build, copy all the production files into the dist folder, create a Procfile required by heroku, and initialize a git repository for you.
+
+Finally, it will create a heroku app for you, with the heroku toolbelt, and sets the node_env to production.
+
+Push to heroku
+
+Once it’s all done with that, you’ll need to git push the dist folder to deploy it.
+
+```
+$ cd dist
+
+$ git push heroku master
+```
+
+
 
 
 ## To do
@@ -40,7 +60,7 @@ $ grunt serve
     <th></th><th>Description</th>
   </tr>
   <tr>
-    <td></td><td>basic file upload with meta data to node server</td>
+    <td>done</td><td>basic file upload with meta data to node server</td>
   </tr>
   <tr>
     <td></td><td>write files to dropbox</td>
@@ -57,8 +77,11 @@ $ grunt serve
       <tr>
     <td></td><td>secure app with passport & twitter & known user in mongo</td>
   </tr>
-        <tr>
-    <td></td><td>heroku CI </td>
+  <tr>
+    <td>done</td><td>heroku CI </td>
+  </tr>
+    <tr>
+    <td>done</td><td>heroku -automatically generate uploads folder </td>
   </tr>
   </table>
 
