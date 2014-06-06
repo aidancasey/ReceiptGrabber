@@ -16,7 +16,6 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var config = require('./lib/config/config');
 var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 
-console.log('foo');
 
 // Bootstrap models
 var modelsPath = path.join(__dirname, 'lib/models');
