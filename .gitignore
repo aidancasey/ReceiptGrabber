@@ -6,3 +6,5 @@ app/bower_components
 heroku
 /views
 dist
+lib/config/env/development.js
+lib/config/env/production.js
