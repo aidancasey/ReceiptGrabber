@@ -63,7 +63,7 @@ $ git push heroku master
     <td>done</td><td>basic file upload with meta data to node server</td>
   </tr>
   <tr>
-    <td></td><td>write files to dropbox</td>
+    <td>partially done</td><td>write files to dropbox</td>
   </tr>
   <tr>
     <td></td><td>store current exchange rates with each transaction</td>
@@ -75,7 +75,7 @@ $ git push heroku master
     <td></td><td>generate csv expense report and sync to drop box</td>
   </tr>
       <tr>
-    <td></td><td>secure app with passport & twitter & known user in mongo</td>
+    <td>almost done - revisit cookie implementation</td><td>secure app with passport & twitter & known user in mongo</td>
   </tr>
   <tr>
     <td>done</td><td>heroku CI </td>
