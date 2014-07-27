@@ -17,6 +17,9 @@ angular.module('splatToolsApp')
        * @return {Promise}            
        */
       login: function(user, callback) {
+        console.log('login fired....');
+
+        
         var cb = callback || angular.noop;
 
         return Session.save({
@@ -95,7 +98,7 @@ angular.module('splatToolsApp')
        * @return {Object} user
        */
       currentUser: function() {
-        return User.get();
+        return User.get().$promise;
       },
 
       /**

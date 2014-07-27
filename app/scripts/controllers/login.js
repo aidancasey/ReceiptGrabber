@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('splatToolsApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -9,18 +9,7 @@ angular.module('splatToolsApp')
       $scope.submitted = true;
       
       if(form.$valid) {
-        Auth.login({
-          email: $scope.user.email,
-          password: $scope.user.password
-        })
-        .then( function() {
-          // Logged in, redirect to home
-          $location.path('/');
-        })
-        .catch( function(err) {
-          err = err.data;
-          $scope.errors.other = err.message;
-        });
+        $window.location.href = '/auth/twitter';
       }
     };
   });
