@@ -42,7 +42,6 @@ require('./lib/config/express')(app);
 require('./lib/routes')(app);
 
 // Start server
-console.log('ip is ' + config.ip)
 app.listen(config.port, config.ip, function () {
   console.log('Express server listening on %s:%d, in %s mode', config.ip, config.port, app.get('env'));
 });
