@@ -19,6 +19,7 @@
     "passport-twitter": "1.0.2",
     "ejs": "0.8.4",
     "connect-busboy" : "0.0.1",
+     "request" : "2.4.0",
     "dbox" : "0.6.1"
 
   },
