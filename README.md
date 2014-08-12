@@ -46,6 +46,7 @@ Push to heroku
 Once it’s all done with that, you’ll need to git push the dist folder to deploy it.
 
 ```
+$ grunt build
 $ cd dist
 
 $ git push heroku master
