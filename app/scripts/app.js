@@ -12,15 +12,18 @@ angular.module('splatToolsApp', [
     $routeProvider
       .when('/', {
         templateUrl: 'partials/expense',
-        controller: 'ExpenseController'
+        controller: 'ExpenseController',
+        authenticate :true
       })
       .when('/login', {
         templateUrl: 'partials/login',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl' ,
+        authenticate : false
       })
       .when('/signup', {
         templateUrl: 'partials/signup',
-        controller: 'SignupCtrl'
+        controller: 'SignupCtrl',
+        authenticate : false
       })
       .when('/settings', {
         templateUrl: 'partials/settings',
@@ -52,9 +55,10 @@ angular.module('splatToolsApp', [
 
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$routeChangeStart', function (event, next) {
-      
-      if (next.authenticate && !Auth.isLoggedIn()) {
-        $location.path('/login');
+      if (next.authenticate){
+          if (!Auth.isLoggedIn()) {
+              $location.path('/login');
+          }
       }
     });
   });

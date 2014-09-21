@@ -1,33 +1,29 @@
 'use strict';
 
 angular.module('splatToolsApp')
-  .controller('SignupCtrl', function ($scope, Auth, $location) {
+  .controller('SignupCtrl', function ($scope, $location, $window, Auth) {
     $scope.user = {};
+    $scope.registeredUser= {};
     $scope.errors = {};
+    $scope.registrationStep =1;
 
-    $scope.register = function(form) {
-      $scope.submitted = true;
-  
-      if(form.$valid) {
-        Auth.createUser({
-          name: $scope.user.name,
-          email: $scope.user.email,
-          password: $scope.user.password
-        })
-        .then( function() {
-          // Account created, redirect to home
-          $location.path('/');
-        })
-        .catch( function(err) {
-          err = err.data;
-          $scope.errors = {};
+    //call back after twitter authentication, we now need to collect additional details
+    if ($location.search().twitterAuth !=null)
+    {
+        $scope.registrationStep =2;
 
-          // Update validity of form fields that match the mongoose errors
-          angular.forEach(err.errors, function(error, field) {
-            form[field].$setValidity('mongoose', false);
-            $scope.errors[field] = error.message;
-          });
-        });
-      }
+        // TO DO check if this is the cleanest way to refernce a service from a controller, it looks hackey
+        Auth.currentUser().then(function(data) {
+            $scope.registeredUser.Name = data.displayName;
+                });
+    }
+
+    $scope.registerTwitter = function(){
+        $window.location.href = '/auth/twitter';
     };
+
+    $scope.registerDropBox = function(){
+            $window.location.href = '/dropbox/authorise';
+    };
+
   });

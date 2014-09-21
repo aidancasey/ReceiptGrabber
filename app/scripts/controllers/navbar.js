@@ -4,10 +4,10 @@ angular.module('splatToolsApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
  
   //set the logged in users name 
-   Auth.currentUser().then(function(data) {
-    $scope.loggedInUser = {};
-       $scope.loggedInUser.Name = data.displayName;
-      });
+//   Auth.currentUser().then(function(data) {
+//    $scope.loggedInUser = {};
+  //     $scope.loggedInUser.Name = data.displayName;
+  //    });
 
     $scope.menu = [{
       'title': 'Home',
